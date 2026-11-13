@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #090d16;
+    color: #f3ead8;
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes floatMote {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-14px) translateX(6px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes rainDrop {
+  0% {
+    transform: translateY(-20px) translateX(4px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(180px) translateX(-14px);
+    opacity: 0;
+  }
+}
+
+.animate-mote {
+  animation: floatMote 6s ease-in-out infinite;
+}
+
+.animate-candle {
+  animation: candleFlicker 3.2s ease-in-out infinite;
+}
+
+.animate-rain {
+  animation: rainDrop 1.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-mote,
+  .animate-candle,
+  .animate-rain {
+    animation: none !important;
+  }
+}
+
+/* Custom subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d121d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3244;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #404961;
+}
